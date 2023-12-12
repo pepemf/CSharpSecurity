@@ -1,0 +1,93 @@
+﻿<Window x:Class="AntiVirus.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:AntiVirus.MVVM.ViewModel"
+        xmlns:local="clr-namespace:AntiVirus"
+        mc:Ignorable="d"
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
+    
+    <Border Background="#212121"
+            CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="C#arpShield🛡️"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="#DDE6ED"
+                       FontSize="22"
+                       FontFamily="Montserrat"/>
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="#DDE6ED"
+                             FontSize="14"
+                             FontFamily="/Fonts/#Ubuntu"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
+                
+                <RadioButton Content="Scan"
+                             Height="50"
+                             FontFamily="/Fonts/#Ubuntu"
+                             Foreground="#DDE6ED"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ScanViewCommand}"/>
+                
+                <RadioButton Content="Results"
+                             Height="50"
+                             FontFamily="/Fonts/#Ubuntu"
+                             Foreground="#DDE6ED"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding DiscoveryViewCommand}"/>
+
+            </StackPanel>
+
+
+            <Button Width="60"
+                    Height="35"
+                    VerticalContentAlignment="Top"
+                    HorizontalAlignment="Right"
+                    FontSize="22"
+                    Grid.Column="1"
+                    Content="X"
+                    Click="ExitButton_Click"
+                    Margin="0,0,0,40"
+                    Style="{StaticResource ExitButtonTheme}"
+                    >
+            </Button>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+            
+        </Grid>
+
+
+    </Border>
+</Window>
