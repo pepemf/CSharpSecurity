@@ -46,7 +46,7 @@
                                HorizontalAlignment="Center"
                                Margin="0 55 0 0"
                                />
-                        <TextBlock Text="Parabens&#x0a;Sistema Seguro!"
+                        <TextBlock Text="Congratulations&#x0a;System is Safe!"
                                    Width="300"
                                    Height="90"
                                    x:Name="SecStatus"

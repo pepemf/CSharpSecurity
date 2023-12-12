@@ -61,14 +61,14 @@ namespace AntiVirus.MVVM.View
             if (itemCount == 0)
             {
                 SecStatusImage.Source = new BitmapImage(new Uri(@"/Images/Good.png", UriKind.RelativeOrAbsolute));
-                SecStatus.Text = "Parabens\nSistema Seguro!";
+                SecStatus.Text = "Congratulations\nSystem is Safe!";
                 SecStatus.Foreground = Brushes.ForestGreen;
 
             }
             else
             {
                 SecStatusImage.Source = new BitmapImage(new Uri(@"/Images/Danger.png", UriKind.RelativeOrAbsolute));
-                SecStatus.Text = $"Atenção!\n{itemCount} item{(itemCount > 1 ? "s" : "")} Inseguros";
+                SecStatus.Text = $"Warning!\n{itemCount} Suspicious item{(itemCount > 1 ? "s" : "")}";
                 SecStatus.Foreground = Brushes.Red;
             }
         }
